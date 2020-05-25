@@ -10,17 +10,23 @@ p_size = (2,2)
 
 model = Sequential()
 
-model.add(Convolution2D(filters=256,kernel_size=(k_size,k_size),activation='relu',input_shape=(64, 64, 3)))
+model.add(Convolution2D(filters=32,kernel_size=(k_size,k_size),activation='relu',input_shape=(64, 64, 3)))
+model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size= p_size))
+model.add(Dropout(0.25))
 
 
-
-model.add(Convolution2D(filters=256,kernel_size=(k_size,k_size),activation='relu',input_shape=(64, 64, 3)))
+model.add(Convolution2D(filters=64,kernel_size=(k_size,k_size),activation='relu'))
+model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size= p_size))
+model.add(Dropout(0.25))
 
 model.add(Flatten())
 
-model.add(Dense(units=64, activation='relu'))
+model.add(Dense(units=256, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
 model.add(Dense(units=1, activation='sigmoid'))
 
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
