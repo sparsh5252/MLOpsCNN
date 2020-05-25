@@ -43,7 +43,7 @@ test_set = test_datagen.flow_from_directory(
         batch_size=32,
         class_mode='binary')
 
-model.fit(
+model.fit_generator(
         training_set,
         steps_per_epoch=1000,
         epochs=no_of_epochs,
