@@ -4,7 +4,7 @@ from keras.layers import Flatten
 from keras.layers import Dense , Dropout , BatchNormalization
 from keras.models import Sequential
  
-no_of_epochs = 2
+no_of_epochs = 1
 k_size = 3
 p_size = (2,2)
 
